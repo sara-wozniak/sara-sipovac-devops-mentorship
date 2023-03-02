@@ -24,6 +24,8 @@ Za pronalazenje fajla koji zadovoljava neke uslove koristim komandu **find** sa 
 Za level 7 koristim naredbu **find . -type f -size 33c -readable -user bandit7 -group bandit6**
 kojomm kazem da u trenutnom direktorijumu pretrazuje fajlove velicine 33 bajta koji su readable za trenutnog usera,  u vlasnistvu su usera bandit7 i pripadaju grupi bandit 6.
 Da bih pronasla liniju sa rjecju 'millionth' korisitm naredbu **grep 'millionth' data.txt**.
+Da bih nasla jedinstvenu liniju u fajlu koristim prvo naredbu **sort data.txt** koja mi alfabetski
+rastuce sortira input fajl. Potom nad tim rezultatmo sa pipelineom | izvrsavam naredbu uniq -u koja nalazi linije koje su jedinstvene.
 
 
 
