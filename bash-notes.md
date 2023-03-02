@@ -22,7 +22,9 @@ Za pronalazenje fajla koji zadovoljava neke uslove koristim komandu **find** sa 
     -size 1033c da fajl ima 1033 bajta
     ! -executable da trenutni user ne moze da ga pokrene
 Za level 7 koristim naredbu **find . -type f -size 33c -readable -user bandit7 -group bandit6**
-kojomm kazem da u trenutnom direktorijumu pretrazuje fajlove velicine 33 bajta koji su readable za trenutnog usera,  u vlasnistvu su usera bandit7 i pripadaju grupi bandit 6
+kojomm kazem da u trenutnom direktorijumu pretrazuje fajlove velicine 33 bajta koji su readable za trenutnog usera,  u vlasnistvu su usera bandit7 i pripadaju grupi bandit 6.
+Da bih pronasla liniju sa rjecju 'millionth' korisitm naredbu **grep 'millionth' data.txt**.
+
 
 
 
