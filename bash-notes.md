@@ -26,6 +26,18 @@ kojomm kazem da u trenutnom direktorijumu pretrazuje fajlove velicine 33 bajta k
 Da bih pronasla liniju sa rjecju 'millionth' korisitm naredbu **grep 'millionth' data.txt**.
 Da bih nasla jedinstvenu liniju u fajlu koristim prvo naredbu **sort data.txt** koja mi alfabetski
 rastuce sortira input fajl. Potom nad tim rezultatmo sa pipelineom | izvrsavam naredbu uniq -u koja nalazi linije koje su jedinstvene.
+Da bih pronasla rijec kojoj prethodi nekoliko znakova = (i kroz testiranje razmak) koristim 
+komandu **grep --text -E '={3,}\s?[a-zA-Z0-9]+' data.txt** kojom kazem:
+    sa --text argumentom da mi binarni fajl data.txt posmatra kao tekstualni
+    sa -E argumentom da mi pattern koji je pod znacima navoda posmatra kao 
+    reuglarni izraz a ne kao string literal
+    ={3,} kazem da mi trazi u tekstu bar tri znaka jednako jedni za drugim
+    \s? moze da slijedi, a ne mora razmak (jer vidim kroz testiranje da ima razmak iako ne pise
+    u postavci)
+    [a-zA-Z0-9]+ da mi slijedi nesto sto je je human-readable oblika: malo/veliko slovo cifra
+    i da se javi bar jednom, ali da uhvati i vise ponavljanja ako ih ima
+    [a-zA-Z0-9]{32} da mi uhvati nakon znakova = tacno 32 karaktera koji su human readable
+    jer vidim da mi se sifre sastoje od toliko karaktera
 
 
 
