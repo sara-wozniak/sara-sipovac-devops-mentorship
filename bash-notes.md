@@ -37,8 +37,9 @@ komandu **grep --text -E '={3,}\s?[a-zA-Z0-9]+' data.txt** kojom kazem:
     [a-zA-Z0-9]+ da mi slijedi nesto sto je je human-readable oblika: malo/veliko slovo cifra
     i da se javi bar jednom, ali da uhvati i vise ponavljanja ako ih ima
     [a-zA-Z0-9]{32} da mi uhvati nakon znakova = tacno 32 karaktera koji su human readable
-    jer vidim da mi se sifre sastoje od toliko karaktera
-
+    jer vidim da mi se sifre sastoje od toliko karaktera.
+Da dekodiram base64 text u data.txt fajlu koristim komandu **base64 -d data.txt** gdje mi je
+-d parametar kojim naglasam da je rijec o dekodiranju.
 
 
 
