@@ -80,6 +80,11 @@ forward requests to other application. In this case it is application running on
 localhost on port 8008, defined in server.js file of node-simple-app. Other fields define
 HTTP version and some header fields.
 
+If I run from my browser EC2PublicIp I can see application serving request.
+If I stop and restart EC2 instance without running any commands on it and type new EC2PublicIP
+I will again see application working. So on instance reboot nginx and node-simple-app are
+automatically started.
+
 
 
 
