@@ -54,6 +54,32 @@ I have created app inside ~/root directory.
 Then I swtich to cd nodejs-simple-app directory and run **npm install** in order to get all libraries that this app depends on,
 which is defined in ./package.json file.
 Then install globally pm2 **npm install -g pm2**.
+List running processes: **pm2 list**.
+Start application **pm2 start server.js**.
+Run **pm2 startup** and **pm2 save** to create enable running pm2 with server boot.
+
+Configure NGINX:
+Inside /ect/nginx/conf.d directory create  simple-node-app.conf file with following content:
+server {
+listen 80;
+server_name 3.68.91.255;
+
+location / {
+proxy_pass http://127.0.0.1:8008;
+proxy_http_version 1.1;
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection 'upgrade';
+proxy_set_header Host $host;
+proxy_cache_bypass $http_upgrade;
+}
+}
+With location / all endpoints will be forwarded to proxy server i.e. NodeJS application.
+This tells NGINX server to listen for traffic on server with EC2's public IP on port 80.
+In order to run some app on NGINX it should be configured as reverse proxy meaning that will
+forward requests to other application. In this case it is application running on
+localhost on port 8008, defined in server.js file of node-simple-app. Other fields define
+HTTP version and some header fields.
+
 
 
 
