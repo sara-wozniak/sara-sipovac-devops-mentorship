@@ -23,4 +23,38 @@ For Biling Alarm it is necessary to create SNS service which receives alerts fro
 and sends email to subscriptions.
 So I created SNS topic **Default_CloudWatch_Alarms_Topic** with only mine e-mail subscribed.
 
+Now, it is needed to connect to EC2 instance using sara-sipovac-web-server-key.pem key-pair from my local machine.
+Through cmd I switched to location of key-pair file and run from there ssh -i sara-sipovac-web-server-key.pem ec2user@publicEC2IPAddress.
+
+Then switched to root user with **sudo su -u**
+
+Install NGINX: yum install nginx -y
+Start NGINX: systemctl start nginx
+This enabled web server on my EC2 instance and if I visit my EC2's public address from browser I can see NGINX default home page.
+Further, I need to set up automatic NGINX start with command: **systemclt enable nginx**.
+In order to test if it works I will Stop my EC2 instance from AWS console, check in browser - it's not available.
+Start EC2 instance, wait to switch from pending to running state, copy new public address into browser and confirm automatic NGINX start,
+i.e. no need to SSH to EC2 and run systemctl start nginx.
+
+Install nodejs:
+Due to failure of first recommended command **curl _l -o nodesource_setup.sh https://rpm.nodesource.com/setup_14.x**
+I have user nvm.
+So, first install nvm  with command **curl -o -https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash**".
+Install node 14 with command **nvm install 14**.
+Check node version with **node --version** which results with **v14.21.3**.
+
+Install git **yum install git -y** (I am  already root user).
+In order to fetch application git repo I need to generate ssh key with command **ssh-keygen -t rsa** and choose default configs.
+ This generated id_rsa and id_rsa.pub in ~/root/.ssh directory.
+I need to copy public key and add it to my GitHub profile via Settings/SSH and GPG keys.
+There I created ec2-instanca-git SSH key.
+
+After that I copy SSH link from package I want to install on my machine. So from EC2 terminal I run **git clone SSH_link**.
+I have created app inside ~/root directory.
+Then I swtich to cd nodejs-simple-app directory and run **npm install** in order to get all libraries that this app depends on,
+which is defined in ./package.json file.
+Then install globally pm2 **npm install -g pm2**.
+
+
+
 
